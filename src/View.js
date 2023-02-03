@@ -4,7 +4,7 @@ const Game = require('./Game');
 
 class View {
   render(track) {
-    const yourTeamName = 'Elbrus';
+    const yourTeamName = 'BoomTeam';
 
     // Тут всё рисуем.
     console.clear();
