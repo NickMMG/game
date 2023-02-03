@@ -5,7 +5,7 @@ class Score {
         this.enemyKilled = 0;
     }
 plusScore() {
-    this.scoreNumber += 1;
+    this.scoreNumber += 50;
 }
 plusKilled() {
     this.enemyKilled += 1;
