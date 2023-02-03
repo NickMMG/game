@@ -17,7 +17,10 @@ class Enemy {
     // Идём влево.
     this.position -= 1;
   }
-
+  st() {
+    this.generateSkin();
+    this.position = 30;
+  }
   die() {
 
     this.position = -1;

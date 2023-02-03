@@ -38,12 +38,13 @@ class Game {
       this.enemy.die();
       // this.hero.boom.moveLeft();
     }
-      if(this.hero.position <= this.hero.boom.position + 1) {
+      if(this.hero.position <= this.hero.boom.position - 2) {
         this.hero.boom.moveLeft();
-        if (this.hero.position === this.hero.boom.position + 1) {
-          this.enemy = new Enemy();
-        }
       }
+        if (this.hero.position === this.hero.boom.position -2) {
+          this.enemy.st();
+        }
+     
     if (this.enemy.position > this.hero.boom.position) {
       this.hero.boom.moveRight();
     }

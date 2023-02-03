@@ -22,7 +22,7 @@ class Hero {
 
   attack() {
     // Атакуем.
-    this.boom.fly();
+    this.boom.position += 1;
   }
 
   die(score, name) {
