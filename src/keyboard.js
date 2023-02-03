@@ -3,12 +3,13 @@
 // Главное не используй всё вместе!
 
 const keypress = require('keypress');
+const game = require('../run');
 
 // Управление.
 // Настроим соответствия нажатий на клавиши и действий в игре.
 
 const keyboard = {
-  q: () => console.log('q'),
+  q: () => game.hero.moveRight(),
   w: () => console.log('w'),
   e: () => console.log('e'),
   r: () => console.log('r'),
@@ -38,3 +39,5 @@ function runInteractiveConsole() {
 // Давай попробуем запустить этот скрипт!
 
 runInteractiveConsole();
+
+module.exports = runInteractiveConsole()
