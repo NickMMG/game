@@ -3,23 +3,16 @@
 // Главное не используй всё вместе!
 
 const keypress = require('keypress');
-const game = require('../run');
 
-// Управление.
-// Настроим соответствия нажатий на клавиши и действий в игре.
-
-const keyboard = {
-  q: () => game.hero.moveLeft(),
-  w: () => game.hero.moveRight(),
-  e: () => game.hero.attack(),
-  r: () => console.log('r'),
-  t: () => console.log('t'),
-  y: () => console.log('y'),
-};
-
-// Какая-то функция.
-
-function runInteractiveConsole() {
+function runInteractiveConsole(hero) {
+  const keyboard = {
+    q: () => hero.moveLeft(),
+    w: () => hero.moveRight(),
+    e: () => hero.attack(),
+    r: () => console.log('r'),
+    t: () => console.log('t'),
+    y: () => console.log('y'),
+  };
   keypress(process.stdin);
   process.stdin.on('keypress', (ch, key) => {
     if (key) {
@@ -38,7 +31,4 @@ function runInteractiveConsole() {
 
 // Давай попробуем запустить этот скрипт!
 
-runInteractiveConsole();
-
-module.exports = runInteractiveConsole()
-
+module.exports = runInteractiveConsole;
