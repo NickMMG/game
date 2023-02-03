@@ -7,7 +7,6 @@ const Enemy = require('./game-models/Enemy');
 // const Boomerang = require('./game-models/Boomerang');
 const View = require('./View');
 const Score = require('./Score');
-
 // Основной класс игры.
 // Тут будут все настройки, проверки, запуск.
 
@@ -32,9 +31,19 @@ class Game {
   }
 
   check() {
-    if (this.enemy.position === this.hero.boom.position) {
+    if (this.enemy.position - 1 === this.hero.boom.position) {
       this.score.plusScore();
       this.enemy.die();
+      // this.hero.boom.moveLeft();
+    }
+      if(this.hero.position <= this.hero.boom.position + 1) {
+        this.hero.boom.moveLeft();
+        if (this.hero.position === this.hero.boom.position + 1) {
+          this.enemy = new Enemy();
+        }
+      }
+    if (this.enemy.position > this.hero.boom.position) {
+      this.hero.boom.moveRight();
     }
     if (this.hero.position === this.enemy.position) {
       this.hero.die();
@@ -48,7 +57,7 @@ class Game {
       this.enemy.moveLeft()
       this.regenerateTrack();
       this.view.render(this.track);
-    }, 500);
+    }, 100);
   }
 }
 
