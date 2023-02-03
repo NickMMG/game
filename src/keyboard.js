@@ -9,9 +9,9 @@ const game = require('../run');
 // Настроим соответствия нажатий на клавиши и действий в игре.
 
 const keyboard = {
-  q: () => game.hero.moveRight(),
-  w: () => console.log('w'),
-  e: () => console.log('e'),
+  q: () => game.hero.moveLeft(),
+  w: () => game.hero.moveRight(),
+  e: () => game.hero.attack(),
   r: () => console.log('r'),
   t: () => console.log('t'),
   y: () => console.log('y'),
@@ -41,3 +41,4 @@ function runInteractiveConsole() {
 runInteractiveConsole();
 
 module.exports = runInteractiveConsole()
+
