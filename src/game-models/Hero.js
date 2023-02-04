@@ -4,10 +4,21 @@ const { EOL } = require ('os');
 const readBD = require('./readDB');
 
 class Hero {
-  constructor({ position } = {}) {
-    this.skin = '🤠'; // можете использовать любые emoji '💃'
+  constructor({ position, vertical } = {}) {
+    this.skin = '😼';
     this.position = position ?? 0;
     this.boom = new Boomerang(-1);
+    this.vertical = vertical ?? 0;
+  }
+  moveUp() {
+   if (this.vertical > 0) {
+    this.vertical -= 1;
+   }
+  }
+  moveDown() {
+  if (this.vertical < 2) {
+    this.vertical += 1;
+  }
   }
 
   moveLeft() {
@@ -31,12 +42,14 @@ class Hero {
   async die(score, name) {
     this.skin = '💀';
     console.log('YOU ARE DEAD!💀');
-    if (score > 0){
-    console.log(`Not bad ${name}!! Your score: ${score}`)
-    } else {
-    console.log(`Ha ha sucker!!`)
-  }
+
   await readBD(name, score);
+  if (score > 0){
+    console.log(`${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL} Not bad ${name}!! Your score: ${score}${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}`)
+    } else {
+  console.log(`${EOL} ${EOL}${EOL} ${EOL} ${EOL} ${EOL} Ha ha sucker!!${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}`)
+  } 
+  //сюда вывести консоль лог с таблицей лучших результатов из базы лимитом 5.
   process.exit();
 }
 }
