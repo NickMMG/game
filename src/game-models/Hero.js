@@ -1,6 +1,8 @@
 // Наш герой.
 const Boomerang = require('./Boomerang');
-const { EOL } = require ('os')
+const { EOL } = require ('os');
+const readBD = require('./readDB');
+
 class Hero {
   constructor({ position } = {}) {
     this.skin = '🤠'; // можете использовать любые emoji '💃'
@@ -26,7 +28,7 @@ class Hero {
     // this.boom.position += 1;
   }
 
-  die(score, name) {
+  async die(score, name) {
     this.skin = '💀';
     console.log('YOU ARE DEAD!💀');
     if (score > 0){
@@ -34,6 +36,7 @@ class Hero {
     } else {
     console.log(`Ha ha sucker!!`)
     }
+    await readBD(name, score);
     process.exit();
   }
 }
