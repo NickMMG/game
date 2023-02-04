@@ -20,9 +20,10 @@ class Hero {
     this.boom.position += 1;
   }
 
-  attack() {
+  attack(position) {
     // Атакуем.
-    this.boom.fly();
+    this.boom.fly(this.position)
+    // this.boom.position += 1;
   }
 
   die(score, name) {

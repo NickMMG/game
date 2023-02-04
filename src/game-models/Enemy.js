@@ -1,11 +1,9 @@
 // Враг.
 
-
 class Enemy {
   constructor() {
     this.generateSkin();
     this.position = 30;
-    this.score = 0;
   }
 
   generateSkin() {
@@ -18,14 +16,17 @@ class Enemy {
     this.position -= 1;
   }
 
-  die() {
+  // st() {
+  //   this.generateSkin();
+  //   this.position = 30;
+  // }
 
+  die() {
     this.position = -1;
+    this.generateSkin()
+    this.position = 30;
     console.log('Enemy is dead!');
-    this.score += 1;
-    console.log(this.score);
   }
 }
 
 module.exports = Enemy;
-
