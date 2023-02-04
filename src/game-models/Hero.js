@@ -23,12 +23,14 @@ class Hero {
 
   moveLeft() {
     // Идём влево.
+    if (this.position > 0) {
     this.position -= 1;
-    // this.boom.position -= 1;
+    }
   }
 
   moveRight() {
     // Идём вправо.
+    if (this.position < 40)
     this.position += 1;
     // this.boom.position += 1;
   }
@@ -42,16 +44,15 @@ class Hero {
   async die(score, name) {
     this.skin = '💀';
     console.log('YOU ARE DEAD!💀');
-
-  await readBD(name, score);
-  if (score > 0){
+    await readBD(name, score)
+    if (score > 0){
     console.log(`${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL} Not bad ${name}!! Your score: ${score}${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}`)
     } else {
-  console.log(`${EOL} ${EOL}${EOL} ${EOL} ${EOL} ${EOL} Ha ha sucker!!${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}`)
-  } 
-  //сюда вывести консоль лог с таблицей лучших результатов из базы лимитом 5.
-  process.exit();
-}
+    console.log(`${EOL} ${EOL}${EOL} ${EOL} ${EOL} ${EOL} Ha ha sucker!!${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}`)
+    } 
+    //сюда вывести консоль лог с таблицей лучших результатов из базы лимитом 5.
+    process.exit();
+  }
 }
 
 module.exports = Hero;
