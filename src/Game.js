@@ -20,6 +20,7 @@ class Game {
     this.view = new View();
     this.score = new Score(name);
     this.track = [];
+    this.track2 = [];
     this.regenerateTrack();
   }
 
@@ -30,6 +31,10 @@ class Game {
     this.track[this.hero.position] = this.hero.skin;
     this.track[this.enemy.position] = this.enemy.skin;
     this.track[this.hero.boom.position] = this.hero.boom.skin;
+    this.track2 = (new Array(this.trackLength)).fill(' ');
+    this.track2[this.hero.position] = this.hero.skin;
+    this.track2[this.enemy.position] = this.enemy.skin;
+    this.track2[this.hero.boom.position] = this.hero.boom.skin;
   }
 
   check() {
@@ -59,7 +64,7 @@ class Game {
       this.check();
       this.enemy.moveLeft();
       this.regenerateTrack();
-      this.view.render(this.track);
+      this.view.render(this.track, this.track2);
     }, 150);
   }
 }
