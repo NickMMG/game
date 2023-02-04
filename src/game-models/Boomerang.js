@@ -10,19 +10,32 @@ class Boomerang {
     this.position = 1;
   }
 
-  fly() {
-    // this.moveRight();
-    // this.moveLeft();
+  fly(position) {
+    this.moveRight(position);
+    // this.moveLeft(position);
   }
 
-  moveLeft() {
-  this.position -= 1;
+  moveLeft(position) {
+    const left = setInterval(() => {
+      this.position -= 1;
+      if (this.position === position + 1) {
+        clearInterval(left);
+      }
+    }, 150);
   }
 
-  moveRight() {
-    this.position += 1;  
+  moveRight(position) {
+    let counter = 0
+    const right = setInterval(() => {
+      this.position += 1;
+      counter += 1
+      if (counter > 5) {
+        clearInterval(right)
+        this.moveLeft(position);
+        counter = 0
+      }
+    }, 150);
   }
 }
 
 module.exports = Boomerang;
-

@@ -33,20 +33,19 @@ class Game {
   }
 
   check() {
-    if (this.enemy.position - 1 === this.hero.boom.position) {
+    if (this.enemy.position - 1 === this.hero.boom.position ||
+      this.enemy.position === this.hero.boom.position || 
+      this.enemy.position + 1 === this.hero.boom.position) {
       this.score.plusScore();
       this.enemy.die();
       // this.hero.boom.moveLeft();
     }
-      if(this.hero.position <= this.hero.boom.position - 2) {
-        this.hero.boom.moveLeft();
-      }
-        if (this.hero.position === this.hero.boom.position -2) {
-          this.enemy.st();
-        }
-     
-    if (this.enemy.position > this.hero.boom.position) {
-      this.hero.boom.moveRight();
+
+    // if (this.hero.position === this.hero.boom.position - 2) {
+    //   this.enemy.st();
+    // }
+    if (this.hero.position === this.hero.boom.position + 1) {
+      this.hero.boom.moveLeft();
     }
     if (this.hero.position === this.enemy.position) {
       this.hero.die(this.score.scoreNumber, this.score.name);
@@ -61,9 +60,16 @@ class Game {
       this.enemy.moveLeft();
       this.regenerateTrack();
       this.view.render(this.track);
-    }, 100);
+    }, 150);
   }
 }
 
-module.exports = Game;
+    // if (this.hero.position <= this.hero.boom.position - 2) {
+    //   this.hero.boom.moveLeft();
+    // }
 
+    // if (this.enemy.position > this.hero.boom.position) {
+    //   this.hero.boom.moveRight();
+    // }
+
+module.exports = Game;
