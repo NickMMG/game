@@ -3,12 +3,13 @@
 // Главное не используй всё вместе!
 
 const keypress = require('keypress');
+const Hero = require('./game-models/Hero')
 
-function runInteractiveConsole(hero) {
+function runInteractiveConsole(hero, enemy) {
   const keyboard = {
     q: () => hero.moveLeft(),
     w: () => hero.moveRight(),
-    e: () => hero.attack(hero.position),
+    e: () => hero.attack(hero),
     r: () => console.log('r'),
     t: () => console.log('t'),
     y: () => console.log('y'),
