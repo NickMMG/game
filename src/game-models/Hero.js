@@ -35,10 +35,10 @@ class Hero {
     console.log(`Not bad ${name}!! Your score: ${score}`)
     } else {
     console.log(`Ha ha sucker!!`)
-    }
-    await readBD(name, score);
-    process.exit();
   }
+  await readBD(name, score);
+  process.exit();
+}
 }
 
 module.exports = Hero;
