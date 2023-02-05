@@ -10,6 +10,10 @@ class Hero {
     this.boom = new Boomerang(-1);
   }
 
+  moveDown(){
+    
+  }
+
   moveLeft() {
     // Идём влево.
     this.position -= 1;

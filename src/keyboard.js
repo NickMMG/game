@@ -10,7 +10,7 @@ function runInteractiveConsole(hero, enemy) {
     q: () => hero.moveLeft(),
     w: () => hero.moveRight(),
     e: () => hero.attack(hero),
-    r: () => console.log('r'),
+    r: () => hero.moveDown(),
     t: () => console.log('t'),
     y: () => console.log('y'),
   };
