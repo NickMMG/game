@@ -7,11 +7,11 @@ const Hero = require('./game-models/Hero')
 
 function runInteractiveConsole(hero, enemy) {
   const keyboard = {
-    q: () => hero.moveLeft(),
-    w: () => hero.moveRight(),
-    e: () => hero.attack(hero),
-    r: () => hero.moveDown(),
-    t: () => console.log('t'),
+    a: () => hero.moveLeft(),
+    d: () => hero.moveRight(),
+    l: () => hero.attack(hero),
+    s: () => hero.moveDown(),
+    w: () => hero.moveUp(),
     y: () => console.log('y'),
   };
   keypress(process.stdin);
