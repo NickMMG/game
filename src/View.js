@@ -4,18 +4,21 @@ const { EOL } = require('os');
 const Game = require('./Game');
 
 class View {
-  render(track, score, name) {
+  render(track, score, name, health) {
     const yourTeamName = 'BoomTeam';
 
     // Тут всё рисуем.
     console.clear();
-    const a = '🌲'
-    console.log(`${a.repeat(21)}`)
+    const a = '🌲';
+    console.log(`${a.repeat(21)}`);
     console.log(track.map((el) => el.join('')).join(EOL));
-    console.log(`${a.repeat(21)}`)
-    console.log(`Good luck ${name}! Your score is ${score}`)
-    console.log(EOL);
-    console.log(`${EOL}Created by "${yourTeamName}"`);
+    console.log(`${a.repeat(21)}`);
+    if (health.length > 0) {
+      console.log(`Goog luck ${name}! Your score is ${score}`);
+      if (score >= 1000) {
+        console.log(`BOSS health: ${health}`);
+      }
+    }
   }
 }
 

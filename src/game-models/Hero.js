@@ -7,7 +7,7 @@ class Hero {
   constructor({ position, vertical } = {}) {
     this.skin = '😼';
     this.position = position ?? 0;
-    this.boom = new Boomerang(-1);
+    this.boom = new Boomerang();
     this.vertical = vertical ?? 0;
   }
   moveUp() {
@@ -36,7 +36,7 @@ class Hero {
   }
 
   attack(hero) {
-    this.boom = new Boomerang(-1)
+    this.boom = new Boomerang(-1, hero.vertical)
     this.boom.moveRight(hero)
     // this.boom.position += 1;
   }
@@ -46,9 +46,9 @@ class Hero {
     console.log('YOU ARE DEAD!💀');
     await readBD(name, score)
     if (score > 0){
-    console.log(`${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL} Not bad ${name}!! Your score: ${score}${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}`)
+    console.log(`${EOL} ${EOL}Not bad ${name}!! Your score: ${score}${EOL} ${EOL}`)
     } else {
-    console.log(`${EOL} ${EOL}${EOL} ${EOL} ${EOL} ${EOL} Ha ha sucker!!${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}${EOL} ${EOL}`)
+    console.log(`${EOL} ${EOL} Ha ha sucker!!${EOL} ${EOL}`)
     } 
     //сюда вывести консоль лог с таблицей лучших результатов из базы лимитом 5.
     process.exit();

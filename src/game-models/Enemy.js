@@ -19,6 +19,7 @@ class Enemy {
   }
 
   die() {
+    this.skin = '💥💥💥';
     this.position = -7;
   }
 }
