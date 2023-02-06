@@ -21,10 +21,6 @@ class Hero {
   }
   }
 
-  moveDown(){
-    
-  }
-
   moveLeft() {
     // Идём влево.
     if (this.position > 0) {
