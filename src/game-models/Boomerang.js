@@ -5,9 +5,10 @@
 const Hero = require('./Hero');
 
 class Boomerang {
-  constructor(position) {
-    this.skin = '🌀';
+  constructor(position, vertical) {
+    this.skin = '🤜';
     this.position = position;
+    this.vertical = vertical;
   }
 
   // fly(position) {
@@ -20,8 +21,9 @@ class Boomerang {
       this.position -= 1;
       if (this.position === position) {
         clearInterval(left);
+        this.skin = ' ';
       }
-    }, 150);
+    }, 50);
   }
 
   moveRight(hero) {
@@ -30,12 +32,12 @@ class Boomerang {
     const right = setInterval(() => {
       this.position += 1;
       counter += 1
-      if (counter > 5) {
+      if (counter > 6) {
         clearInterval(right)
         this.moveLeft(hero.position);
         counter = 0
       }
-    }, 150);
+    }, 50);
   }
 }
 
